@@ -11,6 +11,9 @@ class AddressBook(Singleton):
     def add_person(self, person):
         self.persons.add(person)
 
+    def add_group(self, group):
+        self.groups.add(group)
+
 class Person(object):
     """
     Person contact information

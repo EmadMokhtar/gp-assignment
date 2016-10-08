@@ -15,6 +15,11 @@ class TestAddressBook(unittest.TestCase):
     def test_add_person_to_addressbook(self):
         self.address_book.add_person(self.person)
         self.assertEqual(1, len(self.address_book.persons))
+    def test_add_group(self):
+        self.address_book.add_group(self.family_group)
+        self.assertEqual(1, len(self.address_book.groups))
+
+
 class TestPerson(unittest.TestCase):
     def setUp(self):
         self.person = models.Person('Dummy', 'Person')
