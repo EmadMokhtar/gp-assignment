@@ -5,11 +5,16 @@ from address_book import models
 class TestAddressBook(unittest.TestCase):
     def setUp(self):
         self.address_book = models.AddressBook()
+        self.person = models.Person('Dummy', 'Person')
+        self.person.add_email('dummy.person@company.com')
 
     def test_address_book_is_singleton(self):
         address_book = models.AddressBook()
         self.assertEqual(self.address_book, address_book)
 
+    def test_add_person_to_addressbook(self):
+        self.address_book.add_person(self.person)
+        self.assertEqual(1, len(self.address_book.persons))
 class TestPerson(unittest.TestCase):
     def setUp(self):
         self.person = models.Person('Dummy', 'Person')

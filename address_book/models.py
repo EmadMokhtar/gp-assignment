@@ -8,6 +8,9 @@ class AddressBook(Singleton):
     groups = set()
     persons = set()
 
+    def add_person(self, person):
+        self.persons.add(person)
+
 class Person(object):
     """
     Person contact information
