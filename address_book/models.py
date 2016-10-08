@@ -32,3 +32,17 @@ class Person(object):
 
     def get_full_name(self):
         return '{} {}'.format(self.first_name, self.last_name)
+
+
+class Group(object):
+    """
+    Persons Group
+    """
+
+    def __init__(self, name):
+        self.name = name
+        self.members = set()
+
+    def add_member(self, person):
+        self.members.add(person)
+        person.in_groups.add(self)

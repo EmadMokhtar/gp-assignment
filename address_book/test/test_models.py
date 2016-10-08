@@ -71,5 +71,37 @@ class TestPerson(unittest.TestCase):
                          set([friends_group, close_friends_group]))
 
 
+class TestGroup(unittest.TestCase):
+    def setUp(self):
+        self.group = models.Group('Group')
+
+    def test_initialize_group(self):
+        group_name = 'Family'
+        group = models.Group(group_name)
+        self.assertIsNotNone(group)
+        self.assertEqual(group.name, group_name)
+        self.assertIsInstance(group, models.Group)
+
+    def test_add_person_to_group(self):
+        person = models.Person('Dummy', 'Person')
+        self.group.add_member(person)
+        self.assertEqual(1, len(self.group.members))
+
+    def test_get_persons_in_group(self):
+        family_group = models.Group('Family')
+        friends_group = models.Group('Firends')
+        brother = models.Person('Sam', 'Albert')
+        sister = models.Person('Susan', 'Albert')
+        friend_1 = models.Person('Kenneth', 'Boyce')
+        friend_2 = models.Person('Brandon', 'Crawley')
+        family_group.add_member(brother)
+        family_group.add_member(sister)
+        friends_group.add_member(friend_1)
+        friends_group.add_member(friend_2)
+
+        self.assertEqual(family_group.members, set([brother, sister]))
+        self.assertEqual(friends_group.members, set([friend_1, friend_2]))
+
+
 if __name__ == '__main__':
     unittest.main()
