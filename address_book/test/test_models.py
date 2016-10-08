@@ -7,6 +7,7 @@ class TestAddressBook(unittest.TestCase):
         self.address_book = models.AddressBook()
         self.person = models.Person('Dummy', 'Person')
         self.person.add_email('dummy.person@company.com')
+        # self.family_group = models.Group('Family')
 
     def test_address_book_is_singleton(self):
         address_book = models.AddressBook()
@@ -39,6 +40,18 @@ class TestAddressBook(unittest.TestCase):
     def test_find_person_by_part_of_name(self):
         result = self.address_book.find_person_by_name('mmy')
         self.assertEqual(result.get_full_name(), self.person.get_full_name())
+
+    def test_find_person_by_email(self):
+        result = self.address_book.find_person_by_email(
+                                        'dummy.person@company.com'
+                                        )
+        self.assertTrue(result.get_full_name(), self.person.get_full_name())
+
+    def test_find_person_by_email_perfix(self):
+        result = self.address_book.find_person_by_email('dummy.person')
+        self.assertTrue(result.get_full_name(), self.person.get_full_name())
+        result = self.address_book.find_person_by_email('dummy')
+        self.assertTrue(result.get_full_name(), self.person.get_full_name())
 
     def test_add_group(self):
         self.address_book.add_group(self.family_group)

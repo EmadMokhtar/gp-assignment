@@ -19,6 +19,12 @@ class AddressBook(Singleton):
             if search_term.lower() in person.get_full_name().lower():
                 return person
 
+    def find_person_by_email(self, email):
+        for person in self.persons:
+                if email.lower() in [e[:len(email)] for e in person.emails]:
+                    return person
+
+
 class Person(object):
     """
     Person contact information
