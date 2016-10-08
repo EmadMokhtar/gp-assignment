@@ -14,6 +14,11 @@ class AddressBook(Singleton):
     def add_group(self, group):
         self.groups.add(group)
 
+    def find_person_by_name(self, search_term):
+        for person in self.persons:
+            if search_term.lower() in person.get_full_name().lower():
+                return person
+
 class Person(object):
     """
     Person contact information

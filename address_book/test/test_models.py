@@ -15,6 +15,31 @@ class TestAddressBook(unittest.TestCase):
     def test_add_person_to_addressbook(self):
         self.address_book.add_person(self.person)
         self.assertEqual(1, len(self.address_book.persons))
+
+    def test_find_person_by_first_name(self):
+        result = self.address_book.find_person_by_name('Dummy')
+        self.assertEqual(result.get_full_name(), self.person.get_full_name())
+
+    def test_find_person_by_last_name(self):
+        result = self.address_book.find_person_by_name('Person')
+        self.assertEqual(result.get_full_name(), self.person.get_full_name())
+
+    def test_find_person_by_full_name(self):
+        result = self.address_book.find_person_by_name('Dummy Person')
+        self.assertEqual(result.get_full_name(), self.person.get_full_name())
+
+    def test_find_person_by_full_name_upper_case(self):
+        result = self.address_book.find_person_by_name('DUMMY PERSON')
+        self.assertEqual(result.get_full_name(), self.person.get_full_name())
+
+    def test_find_person_by_full_name_small_case(self):
+        result = self.address_book.find_person_by_name('dummy person')
+        self.assertEqual(result.get_full_name(), self.person.get_full_name())
+
+    def test_find_person_by_part_of_name(self):
+        result = self.address_book.find_person_by_name('mmy')
+        self.assertEqual(result.get_full_name(), self.person.get_full_name())
+
     def test_add_group(self):
         self.address_book.add_group(self.family_group)
         self.assertEqual(1, len(self.address_book.groups))
