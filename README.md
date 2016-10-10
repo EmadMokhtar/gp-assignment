@@ -18,6 +18,82 @@ Package is 100% test Coverage
 | `test/test_models.py`      | 118   | 0    | 100%  |
 |           TOTAL            | 163   | 0    | 100%  |
 
+# Usage
+
+## Create Person and add person to Address Book.
+
+``` python
+from address_book import models
+
+address_book = models.AddressBook()
+
+person = models.Person('Jack', 'Scoot')
+person.add_email = 'jack@company.com'
+person.add_address = 'Alex Company, Random Street'
+person.add_phone_number = '999-999-9999'
+
+address_book.add_person(person)
+```
+
+## Create person and add person to teh address book and group
+
+``` python
+from address_book import models
+
+address_book = models.AddressBook()
+
+person = models.Person('Jack', 'Scoot')
+person.add_email = 'jack@company.com'
+person.add_address = 'Alex Company, Random Street'
+person.add_phone_number = '999-999-9999'
+
+group = models.Group('Friends')
+group.add_member(person)
+
+address_book.add_person(person)
+address_book.add_group(group)
+```
+
+
+## Create group and add group to the address book
+
+``` python
+from address_book import models
+
+address_book = models.AddressBook()
+
+group = models.Group('Friends')
+
+address_book.add_group(group)
+```
+
+## Find person in address book by name
+
+``` python
+from address_book import models
+
+address_book = models.AddressBook()
+
+person = address_book.find_person_by_name('Jack')
+
+print(person.get_full_name())
+>>> Jack Scott
+```
+
+## Find person in address book by email
+
+``` python
+from address_book import models
+
+address_book = models.AddressBook()
+
+person = address_book.find_person_by_email('jack@company.com')
+
+print(person.get_full_name())
+>>> Jack Scott
+```
+
+
 ## Address book APIs
 
 ### class `AddressBook()`
