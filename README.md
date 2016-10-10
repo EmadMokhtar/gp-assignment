@@ -3,8 +3,8 @@ This is a simple address book python implementation.
 
 ## Test
 
-1. Install dependencies `pip install -r requirements_dev.txt`
-2. Run `nosetests`
+1. Install dependencies `pip install -r requirements_dev.txt`.
+2. Run `nosetests` or run `nosetests --with-coverag` to run test with coverage report.
 
 ## Test Coverage
 
