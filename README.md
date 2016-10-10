@@ -10,6 +10,13 @@ This is a simple address book python implementation.
 
 Package is 100% test Coverage
 
+| Name                       | Stmts | Miss | Cover |
+|----------------------------|-------|------|-------|
+| `address_book/__init__.py` | 0     | 0    | 100%  |
+| `address_book/base.py`     | 6     | 0    | 100%  |
+| `address_book/models.py`   | 39    | 0    | 100%  |
+| `test/test_models.py`      | 118   | 0    | 100%  |
+|           TOTAL            | 163   | 0    | 100%  |
 
 ## Address book APIs
 
