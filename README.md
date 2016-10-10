@@ -96,7 +96,7 @@ Add email to person information
 
 Add phone number to person information
 
-##### parameters
+###### parameters
 * **phone_number**: person's phone number to be added
 
 ##### `get_full_name()`
