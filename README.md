@@ -203,3 +203,19 @@ Add member to the group
 
 ###### parameters
 * **person**: person who will be a member in group
+
+--
+# Design Question
+***Find person by email address (can supply any substring, ie. "comp" should work assuming "alexander@company.com" is an email address in the address book)***
+
+If we aggregate the persons's contact information regardless of the type of information like this:
+
+``` python
+{'contact_info': ['alexander@company.com'
+                   'Alex Company, Random Street',
+                   ...
+                  ]
+}
+```
+
+We can search for **comp** in the contact_info, or more better is creating a method that aggregate the contact information and return it as on string and search for **comp** in it, but these soltion will have big time complexity for that we can gather all of these information in text file or json file and update the file everytime user add a conntact informtaiont to the person object.
