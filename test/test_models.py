@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import unittest
 from address_book import models
 
@@ -7,7 +10,7 @@ class TestAddressBook(unittest.TestCase):
         self.address_book = models.AddressBook()
         self.person = models.Person('Dummy', 'Person')
         self.person.add_email('dummy.person@company.com')
-        # self.family_group = models.Group('Family')
+        self.family_group = models.Group('Family')
 
     def test_address_book_is_singleton(self):
         address_book = models.AddressBook()
@@ -151,5 +154,5 @@ class TestGroup(unittest.TestCase):
         self.assertEqual(friends_group.members, set([friend_1, friend_2]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
