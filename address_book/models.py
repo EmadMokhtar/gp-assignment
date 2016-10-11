@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import six
 from .base import Singleton
 
 
@@ -57,6 +58,7 @@ class AddressBook(Singleton):
                     return person
 
 
+@six.python_2_unicode_compatible
 class Person(object):
     """
     Person contact information
@@ -114,6 +116,8 @@ class Person(object):
         """
         return '{} {}'.format(self.first_name, self.last_name)
 
+    def __str__(self):
+        return self.get_full_name()
 
 class Group(object):
     """

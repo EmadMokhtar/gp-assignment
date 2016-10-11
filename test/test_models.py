@@ -121,6 +121,9 @@ class TestPerson(unittest.TestCase):
         self.assertEqual(best_friend.in_groups,
                          set([friends_group, close_friends_group]))
 
+        def test_str(self):
+            self.assertEqual('Dummy Person', self.person.__str__())
+
 
 class TestGroup(unittest.TestCase):
     def setUp(self):
