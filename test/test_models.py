@@ -156,6 +156,9 @@ class TestGroup(unittest.TestCase):
         self.assertEqual(family_group.members, set([brother, sister]))
         self.assertEqual(friends_group.members, set([friend_1, friend_2]))
 
+    def test_str(self):
+        self.assertEqual('Group', self.group.__str__())
+
 
 if __name__ == "__main__":
     unittest.main()

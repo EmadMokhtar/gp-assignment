@@ -119,6 +119,8 @@ class Person(object):
     def __str__(self):
         return self.get_full_name()
 
+
+@six.python_2_unicode_compatible
 class Group(object):
     """
     Persons Group
@@ -141,3 +143,6 @@ class Group(object):
         """
         self.members.add(person)
         person.in_groups.add(self)
+
+    def __str__(self):
+        return self.name
